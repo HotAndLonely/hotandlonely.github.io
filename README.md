@@ -11,4 +11,4 @@
   <li>Scripting: Python, Batch, Ruby, Perl(meme).</li>
   <li>Experience: Making webapps, all types of virus, networking, GUIs and obviously trolling 🤠</li>
 </ul>
-  
+ 
