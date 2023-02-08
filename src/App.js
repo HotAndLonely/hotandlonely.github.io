@@ -1,13 +1,12 @@
 import './App.css';
-import { Fade, Container, Grid, Paper, Stack, Typography, Tooltip, ButtonGroup, Button, FormControl, InputLabel, Select, MenuItem, Autocomplete, TextField } from '@mui/material';
+import { Fade, Container, Grid, Paper, Stack, Typography, Tooltip, Autocomplete, TextField } from '@mui/material';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import React from 'react';
 import { Box } from '@mui/system';
 import Draggable from 'react-draggable';
-import CloseIcon from '@mui/icons-material/Close';
-import MinimizeIcon from '@mui/icons-material/Minimize';
 import { TypeAnimation } from 'react-type-animation';
 import axios from 'axios'
+import pic from './pic.png'
 
 const darkTheme = createTheme({
   palette: {
@@ -28,18 +27,7 @@ export default function App() {
       <Fade in={true}>
         <Container>
           <Draggable>
-            <Grid border={1} borderColor={'skyblue'} borderRadius={1}>
-              <Grid borderBottom={2} borderColor={'skyblue'} align={'right'}>
-                <Paper width={'100%'}>
-                  <Stack direction={'row'} width={'100%'} justifyContent={'space-between'}>
-                    <GetClientIp></GetClientIp>
-                    <Stack direction={'row'}>
-                      <MinimizeIcon color='primary' />
-                      <CloseIcon color='primary' />
-                    </Stack>
-                  </Stack>
-                </Paper>
-              </Grid>
+            <Grid border={1} borderColor={'skyblue'} borderRadius={1} width={'90%'}>
               <Paper elevation={16}>
                 <Stack direction={'row'}>
                   <Stack direction={'column'}>
@@ -50,17 +38,16 @@ export default function App() {
                         options={options}
                         getOptionLabel={(option) => option.title}
                         sx={{ width: 200 }}
-                        renderInput={(params) => <TextField  className='autocompleteStyle' variant='standard' {...params} />}
+                        renderInput={(params) => <TextField id='tf' className='autocompleteStyle' variant='standard' {...params} />}
                         />]}
-                      typingWords={""}></TarjetaTerminal>
+                      typingWords={['']}></TarjetaTerminal>
                   </Stack>
                   <Stack textAlign={'right'} margin='auto' overflow={'hidden'}>
                     <Tooltip title={'Github 👀'}>
-                      <img Id='profilepic' onClick={() => { window.open('https://github.com/HotAndLonely', '_blank').focus() }} style={{ 'border-radius': '0%', 'margin': '20px' }} width={450} src={"asciipic.png"} alt={"profile pic"} />
+                      <img id='profilepic' onClick={() => { window.open('https://github.com/HotAndLonely', '_blank').focus() }} style={{'margin': 'auto' }} width={450} src={pic} alt={"github pic"} />
                     </Tooltip>
                   </Stack>
                 </Stack>
-
               </Paper >
             </Grid>
           </Draggable>
@@ -99,7 +86,6 @@ const TypingText = (props) => {
         4000, // Waits 2s
         props.typingWords[1],
         () => {
-          console.log('[i]Typing animation loaded...'); // Place optional callbacks anywhere in the array
         }
       ]}
       wrapper="div"
