@@ -8,8 +8,8 @@ import AnimateBackground from './components/background';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(<>
-  <App />
-  <AnimateBackground />
+    <App />
+    <AnimateBackground />
 </>
 );
 
