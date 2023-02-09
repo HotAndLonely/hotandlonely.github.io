@@ -1,15 +1,16 @@
 {
   "files": {
-    "main.css": "/hotandlonely/static/css/main.688472c8.css",
-    "main.js": "/hotandlonely/static/js/main.be13516f.js",
+    "main.css": "/hotandlonely/static/css/main.0d426631.css",
+    "main.js": "/hotandlonely/static/js/main.15cf6740.js",
     "static/js/787.28cb0dcd.chunk.js": "/hotandlonely/static/js/787.28cb0dcd.chunk.js",
+    "static/media/pic.png": "/hotandlonely/static/media/pic.382ecef07ce07e66f757.png",
     "index.html": "/hotandlonely/index.html",
-    "main.688472c8.css.map": "/hotandlonely/static/css/main.688472c8.css.map",
-    "main.be13516f.js.map": "/hotandlonely/static/js/main.be13516f.js.map",
+    "main.0d426631.css.map": "/hotandlonely/static/css/main.0d426631.css.map",
+    "main.15cf6740.js.map": "/hotandlonely/static/js/main.15cf6740.js.map",
     "787.28cb0dcd.chunk.js.map": "/hotandlonely/static/js/787.28cb0dcd.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.688472c8.css",
-    "static/js/main.be13516f.js"
+    "static/css/main.0d426631.css",
+    "static/js/main.15cf6740.js"
   ]
 }
