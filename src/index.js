@@ -4,12 +4,14 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import AnimateBackground from './components/background';
-
+import { BrowserRouter } from "react-router-dom";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(<>
-    <App />
-    <AnimateBackground />
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
+        <App />
+        <AnimateBackground />
+    </BrowserRouter>
 </>
 );
 

@@ -5,7 +5,6 @@ import React from 'react';
 import { Box } from '@mui/system';
 import Draggable from 'react-draggable';
 import { TypeAnimation } from 'react-type-animation';
-import axios from 'axios'
 import pic from './pic.png'
 
 const darkTheme = createTheme({
