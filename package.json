@@ -1,7 +1,7 @@
 {
   "name": "my-app",
   "version": "0.1.0",
-  "homepage": "https://hotandlonely.github.io/hotandlonely",
+  "homepage": ".",
   "private": false,
   "dependencies": {
     "@emotion/react": "^11.10.5",
