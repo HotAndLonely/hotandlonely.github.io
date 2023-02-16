@@ -8,6 +8,7 @@ import { BrowserRouter } from "react-router-dom";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(<>
+    <title>si</title>
     <BrowserRouter basename={process.env.PUBLIC_URL}>
         <App />
         <AnimateBackground />
