@@ -6,7 +6,8 @@ import { Box } from '@mui/system';
 import Draggable from 'react-draggable';
 import { TypeAnimation } from 'react-type-animation';
 import pic from './pic.png'
-import {useEffect } from 'react';
+import AnimateBackground from './components/background';
+import { useEffect } from 'react';
 
 const darkTheme = createTheme({
   palette: {
@@ -17,22 +18,23 @@ const darkTheme = createTheme({
 export default function App() {
 
   const options = [
-    { title: 'Github', link: 'https://github.com/HotAndLonely', action:'href',cate: 'Social' },
+    { title: 'Github', link: 'https://github.com/HotAndLonely', action: 'href', cate: 'Social' },
     { title: 'Discord', link: 'xenon#1272', cate: 'Social' },
-    { title: 'Email', link: 'mailto:akaxenonxss@gmail.com', action:'href', cate: 'Social' },
-    { title: 'Lypus', link: 'https://github.com/Team-Lypus', action:'href', cate: 'Group' },
-    { title: 'Roam', link: 'https://github.com/abrahampo1/roam', action:'href', cate: 'Open source' },
-    { title: 'Geneva', link: 'https://github.com/HotAndLonely/Geneva', action:'href',cate: 'Open source' },
+    { title: 'Email', link: 'mailto:akaxenonxss@gmail.com', action: 'href', cate: 'Social' },
+    { title: 'Lypus', link: 'https://github.com/Team-Lypus', action: 'href', cate: 'Group' },
+    { title: 'Roam', link: 'https://github.com/abrahampo1/roam', action: 'href', cate: 'Open source' },
+    { title: 'Geneva', link: 'https://github.com/HotAndLonely/Geneva', action: 'href', cate: 'Open source' },
     { title: 'Ethereum', link: '0x67881F604f0f3E6244A43179654C6239227ce47F', cate: 'Finance' },
   ]
 
   return <>
-  <Title />
+  <AnimateBackground></AnimateBackground>
+    <Title />
     <ThemeProvider theme={darkTheme}>
       <Fade in={true}>
         <Container>
           <Draggable>
-            <Grid border={1} borderColor={'skyblue'} borderRadius={1} width={'90%'}>
+            <Grid id='mainwindow' border={1} borderColor={'skyblue'} borderRadius={1} width={'100%'}>
               <Paper elevation={16}>
                 <Stack direction={'row'}>
                   <Stack direction={'column'}>
@@ -49,9 +51,9 @@ export default function App() {
                       <Button onClick={() => {
                         let comando = document.getElementById('comando');
                         options.forEach(element => {
-                          if (element['title'] === comando.value){
-                            if (element['action'] === 'href'){
-                                window.open(element['link'], '_blank').focus()                      
+                          if (element['title'] === comando.value) {
+                            if (element['action'] === 'href') {
+                              window.open(element['link'], '_blank').focus()
                             } else {
                               navigator.clipboard.writeText(element['link']);
                               alert('Clipboard copied! ╰(*°▽°*)╯')
@@ -74,10 +76,51 @@ export default function App() {
               </Paper >
             </Grid>
           </Draggable>
+          <Draggable>
+            <Grid id='phonewindow' border={1} borderColor={'skyblue'} borderRadius={1} width={'100%'}>
+              <Paper elevation={16}>
+                <Stack direction={'row'}>
+                  <Stack direction={'column'}>
+                    <TarjetaTerminal words={['display', 'info']} typingWords={["Hello, I'm XSS", "Welcome to my website"]} />
+                    <TarjetaTerminal id='comandoTarjeta' words={[
+                      'open',
+                      <Autocomplete id={'comando'} options={options} getOptionLabel={(option) => option.title}
+                        sx={{ width: 200 }}
+                        groupBy={(options) => options.cate}
+                        renderInput={(params) => <TextField id='tf' className='autocompleteStyle' variant='standard' {...params} />}
+                      />]}>
+                    </TarjetaTerminal>
+                    <Stack margin='auto'>
+                      <Button onClick={() => {
+                        let comando = document.getElementById('comando');
+                        options.forEach(element => {
+                          if (element['title'] === comando.value) {
+                            if (element['action'] === 'href') {
+                              window.open(element['link'], '_blank').focus()
+                            } else {
+                              navigator.clipboard.writeText(element['link']);
+                              alert('Clipboard copied! ╰(*°▽°*)╯')
+                            }
+                          }
+                        });
+                      }}
+                        variant="outlined"
+                      >Launch</Button>
+                    </Stack>
+                  </Stack>
+                  <Stack textAlign={'right'} margin='auto' overflow={'hidden'}>
+                    <Tooltip title={'Github 👀'}>
+                      <img id='profilepic' onClick={() => { window.open('https://github.com/HotAndLonely', '_blank').focus() }} style={{ 'margin': 'auto' }} width={450} src={pic} alt={"github pic"} />
+                    </Tooltip>
+                  </Stack>
+                </Stack>
+              </Paper >
+            </Grid>
+          </Draggable>
           <div id='alertas'>
           </div>
         </Container>
-       
+
       </Fade>
     </ThemeProvider>
   </>

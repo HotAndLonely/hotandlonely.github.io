@@ -27,6 +27,21 @@ body{
   font-family: 'Consolas';
 }
 
-#profilepic:hover{
-  cursor: pointer;
+@media (max-width:960px) {
+  #mainwindow{
+    display: none;
+  }
+  #profilepic {
+    width: 90%;
+  }
+}
+@media (min-width:960px) {
+  #phonewindow{
+    display: none;
+  }
+
+  #profilepic:hover{
+    cursor: pointer;
+  }
+
 }

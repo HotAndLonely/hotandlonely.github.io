@@ -1,19 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-import AnimateBackground from './components/background';
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import WindowSite from './windowSite';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<>
-    <title>si</title>
-    <BrowserRouter basename={process.env.PUBLIC_URL}>
-        <App />
-        <AnimateBackground />
-    </BrowserRouter>
-</>
+
+ReactDOM.createRoot(document.getElementById('root')).render(
+    <App />
 );
 
-reportWebVitals();
+function App() {
+    return <>
+        <BrowserRouter>
+          <div className='app'>
+            <Routes>
+              <Route path='*' element={<WindowSite />} />
+            </Routes>
+          </div>
+        </BrowserRouter>
+    </>
+  }
